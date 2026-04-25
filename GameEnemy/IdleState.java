@@ -1,15 +1,12 @@
-public class IdleState implements EnemyState {
-	private Enemy owner;
+public class IdleState extends EnemyState {
+
+	public IdleState(Enemy owner) {
+		super(owner);
+	}
 
 	@Override
 	public void update() {
-		// Patrol
-		if (true /* Player is in range */) {
-			owner.changeState(new ChaseState(owner));
-		}
+		owner.changeState(new SearchState(owner));
 	}
 
-	public IdleState(Enemy owner) {
-		this.owner = owner;
-	}
 }

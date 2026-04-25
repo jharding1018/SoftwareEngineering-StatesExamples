@@ -1,15 +1,18 @@
-public class ChaseState implements EnemyState {
-	private Enemy owner;
+public class ChaseState extends EnemyState {
 
 	@Override
 	public void update() {
 		// Move towards player
-		if (true /* Player is out of range */) {
+		if (isPlayerOutOfRange()) {
 			owner.changeState(new SearchState(owner));
 		}
 	}
 
 	public ChaseState(Enemy owner) {
-		this.owner = owner;
+		super(owner);
+	}
+
+	private boolean isPlayerOutOfRange() {
+		return true;
 	}
 }
